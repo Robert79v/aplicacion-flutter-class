@@ -8,9 +8,9 @@ class HomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: troop.length, // tu lista de TroopModel
+      itemCount: troop.length,
       itemBuilder: (context, index) {
-        return ItemRow(troop: troop[index]); // pasamos el troop correspondiente
+        return ItemRow(troop: troop[index]);
       },
     );
   }

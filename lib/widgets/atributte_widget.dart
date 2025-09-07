@@ -13,7 +13,7 @@ class AttributeWidget extends StatelessWidget {
   const AttributeWidget({
     Key? key,
     required this.progress,
-    this.size = 45, //42
+    this.size = 45, 
     this.child,
   }) : super(key: key);
 
