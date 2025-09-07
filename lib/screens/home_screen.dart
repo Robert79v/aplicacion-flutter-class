@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:pmsn20252/utils/value_listener.dart';
+import 'package:pmsn20252/widgets/home_content_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,9 +13,27 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
+  late ScrollController _scrollController;
+
+  double toolbarOpacity = 1.0;
+
+   @override
+  void initState() {
+    _scrollController = new ScrollController();
+    _scrollController.addListener(() {
+      setState(() {
+        if (_scrollController.offset <= 80) {
+          toolbarOpacity = (80 - _scrollController.offset) / 80;
+        } else {
+          toolbarOpacity = 0;
+        }
+      });
+    });
+    super.initState();
+  }
 
   static const List<Widget> _pages = <Widget>[
-    Center(child: Text("Home", style: TextStyle(fontSize: 24))),
+    HomeContent(),
     Center(child: Text("Likes", style: TextStyle(fontSize: 24))),
     Center(child: Text("Search", style: TextStyle(fontSize: 24))),
     Center(child: Text("Profile", style: TextStyle(fontSize: 24))),
@@ -24,13 +44,26 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Star Wars App"),
-        backgroundColor: Colors.blue,
+        actions: [
+          ValueListenableBuilder(
+            valueListenable:  ValueListener.isDark,
+            builder: (context, value, child) {
+              return  value
+              ? IconButton(icon: Icon(Icons.sunny), onPressed: () {
+                  ValueListener.isDark.value = false;
+                },)
+              : IconButton(icon: Icon(Icons.nightlight), onPressed: () {
+                  ValueListener.isDark.value = true;
+                },);
+            },
+          ),
+        ],
       ),
       drawer: const Drawer(),
+
       body: _pages[_selectedIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
           boxShadow: [
             BoxShadow(
               blurRadius: 20,
@@ -45,12 +78,12 @@ class _HomeScreenState extends State<HomeScreen> {
               rippleColor: Colors.grey[300]!,
               hoverColor: Colors.grey[100]!,
               gap: 8,
-              activeColor: Colors.blue,
+              activeColor: const Color.fromARGB(255, 92, 106, 117),
               iconSize: 24,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               duration: const Duration(milliseconds: 400),
-              tabBackgroundColor: Colors.blue.withOpacity(0.1),
-              color: Colors.black,
+              tabBackgroundColor: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.1),
+              color: const Color.fromARGB(255, 225, 219, 219),
               tabs: const [
                 GButton(
                   icon: LineIcons.home,

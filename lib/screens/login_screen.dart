@@ -83,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Positioned(
               top: 300,
               child: isValidating 
-              ? Lottie.asset('assets/loading2.json', height: 200)
+              ? Lottie.asset('assets/saber.json', height: 200)
               : Container()
             ),
           ],
