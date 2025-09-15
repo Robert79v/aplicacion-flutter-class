@@ -30,7 +30,7 @@ class ThemeApp {
 
   static ThemeData lightTheme() {
     return ThemeData.light().copyWith(
-      scaffoldBackgroundColor: const Color(0xFFBAB7B7), // 👈 Gris metálico claro
+      scaffoldBackgroundColor: const Color.fromARGB(255, 33, 133, 248), // 👈 Gris metálico claro
       colorScheme: const ColorScheme(
         brightness: Brightness.light,
         primary: Color(0xFF1B6CA8), // Azul Jedi
@@ -43,7 +43,7 @@ class ThemeApp {
         onSurface: Colors.black,
       ),
       appBarTheme: const AppBarTheme(
-        backgroundColor: Color(0xFFBAB7B7), // Azul Jedi
+        backgroundColor: Color.fromARGB(255, 19, 109, 213), // Azul Jedi
         foregroundColor: Colors.white,
         elevation: 4,
       ),

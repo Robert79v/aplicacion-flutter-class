@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
               rippleColor: Colors.grey[300]!,
               hoverColor: Colors.grey[100]!,
               gap: 8,
-              activeColor: const Color.fromARGB(255, 92, 106, 117),
+              activeColor: const Color.fromARGB(255, 255, 255, 255),
               iconSize: 24,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               duration: const Duration(milliseconds: 400),

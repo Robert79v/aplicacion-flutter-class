@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pmsn20252/screens/home_screen.dart';
 import 'package:pmsn20252/screens/login_screen.dart';
+import 'package:pmsn20252/screens/register_screen.dart';
 import 'package:pmsn20252/utils/theme_app.dart';
 import 'package:pmsn20252/utils/value_listener.dart';
 
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           theme: value ? ThemeApp.darkTheme() : ThemeApp.lightTheme(),
           routes: {
-            "/home" : (context) => HomeScreen()
+            "/home" : (context) => HomeScreen(),
+            "/register" : (context) => RegisterScreen()
           },
           title: 'MaterialApp',
           home: LoginScreen(),

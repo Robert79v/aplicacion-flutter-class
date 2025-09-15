@@ -74,11 +74,23 @@ class _LoginScreenState extends State<LoginScreen> {
                           (value) => Navigator.pushNamed(context, '/home'),
                         );
                       },
-                      icon: Icon(Icons.login, size: 40)
-                    )
+                      icon: Icon(Icons.login, size: 20)
+                    ),
                   ],
                 ),
               )
+            ),
+            Positioned(
+              bottom: 120,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/register');
+                },
+                child: const Text(
+                  "¿No tienes cuenta? Regístrate aquí",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
             ),
             Positioned(
               top: 300,
