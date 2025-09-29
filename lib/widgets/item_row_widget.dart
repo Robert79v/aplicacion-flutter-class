@@ -65,7 +65,8 @@ class ItemRow extends StatelessWidget {
             children: [
               Transform.translate(
                 offset: Offset(-30, 0),
-                child: Container(
+                child: Hero(
+                  tag: troop.name,
                   child: Image.asset(
                     troop.image,
                     width: rowHeight,
